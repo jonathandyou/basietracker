@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Basie Tracker 🐱</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🐱 Basie Tracker</h1>
+      <p>Track your neighborhood cat sightings and feedings</p>
+    </header>
+
+    <nav>
+      <button class="nav-btn active" data-view="dashboard">Dashboard</button>
+      <button class="nav-btn" data-view="sightings">Sightings</button>
+      <button class="nav-btn" data-view="feedings">Feedings</button>
+      <button class="nav-btn" data-view="cats">Cats</button>
+    </nav>
+
+    <!-- Dashboard View -->
+    <section id="dashboard-view" class="view active">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <h3 id="total-cats">0</h3>
+          <p>Total Cats</p>
+        </div>
+        <div class="stat-card">
+          <h3 id="total-sightings">0</h3>
+          <p>Sightings</p>
+        </div>
+        <div class="stat-card">
+          <h3 id="total-feedings">0</h3>
+          <p>Feedings</p>
+        </div>
+      </div>
+
+      <div class="recent-activity">
+        <h2>Last Sighting</h2>
+        <div id="last-sighting" class="activity-card empty">
+          No sightings yet
+        </div>
+
+        <h2>Recent Feedings</h2>
+        <div id="recent-feedings" class="activity-list">
+          No feedings recorded yet
+        </div>
+      </div>
+    </section>
+
+    <!-- Sightings View -->
+    <section id="sightings-view" class="view">
+      <div class="form-card">
+        <h2>Record a Sighting 🐾</h2>
+        <form id="sighting-form">
+          <div class="form-group">
+            <label for="sighting-cat">Cat</label>
+            <select id="sighting-cat" name="cat_name" required>
+              <option value="">Select a cat...</option>
+            </select>
+            <input type="text" id="new-cat-name" placeholder="Or add new cat" style="display: none;">
+            <label>
+              <input type="checkbox" id="add-new-cat"> Add new cat
+            </label>
+          </div>
+          <div class="form-group">
+            <label for="sighting-notes">Notes</label>
+            <textarea id="sighting-notes" name="notes" placeholder="Where did you see them? What were they doing?"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="sighting-photo">Photo</label>
+            <input type="file" id="sighting-photo" name="photo" accept="image/*">
+          </div>
+          <button type="submit" class="btn primary">Record Sighting</button>
+        </form>
+      </div>
+
+      <div class="list-section">
+        <h2>Recent Sightings</h2>
+        <div id="sightings-list" class="item-list">
+          No sightings recorded yet
+        </div>
+      </div>
+    </section>
+
+    <!-- Feedings View -->
+    <section id="feedings-view" class="view">
+      <div class="form-card">
+        <h2>Record a Feeding 🍽️</h2>
+        <form id="feeding-form">
+          <div class="form-group">
+            <label for="feeding-cat">Cat</label>
+            <select id="feeding-cat" name="cat_name" required>
+              <option value="">Select a cat...</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="food-type">Food Type</label>
+            <select id="food-type" name="food_type">
+              <option value="">Select type...</option>
+              <option value="dry">Dry Food</option>
+              <option value="wet">Wet Food</option>
+              <option value="treats">Treats</option>
+              <option value="homemade">Homemade</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="amount">Amount</label>
+            <input type="text" id="amount" name="amount" placeholder="e.g., 1/2 cup, 1 pouch, a handful">
+          </div>
+          <div class="form-group">
+            <label for="feeding-notes">Notes</label>
+            <textarea id="feeding-notes" name="notes" placeholder="Any observations?"></textarea>
+          </div>
+          <button type="submit" class="btn primary">Record Feeding</button>
+        </form>
+      </div>
+
+      <div class="list-section">
+        <h2>Recent Feedings</h2>
+        <div id="feedings-list" class="item-list">
+          No feedings recorded yet
+        </div>
+      </div>
+    </section>
+
+    <!-- Cats View -->
+    <section id="cats-view" class="view">
+      <div class="form-card">
+        <h2>Add a New Cat 🐈</h2>
+        <form id="cat-form">
+          <div class="form-group">
+            <label for="cat-name">Name</label>
+            <input type="text" id="cat-name" name="name" required placeholder="Cat's name">
+          </div>
+          <button type="submit" class="btn primary">Add Cat</button>
+        </form>
+      </div>
+
+      <div class="list-section">
+        <h2>Your Cats</h2>
+        <div id="cats-list" class="cats-grid">
+          No cats added yet
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="toast"></div>
+
+  <script src="/app.js"></script>
+</body>
+</html>
