@@ -326,6 +326,33 @@ nav {
   background: #43a047;
 }
 
+.data-footer {
+  margin-top: 40px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  text-align: center;
+}
+
+.data-footer p {
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 15px;
+  font-size: 0.9rem;
+}
+
+.data-footer .btn {
+  margin: 5px;
+}
+
+.btn.secondary {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.btn.secondary:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
 @media (max-width: 600px) {
   body {
     padding: 10px;
