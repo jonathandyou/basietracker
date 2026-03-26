@@ -1,7 +1,17 @@
 {
   "framework": null,
-  "buildCommand": null,
-  "outputDirectory": "public",
-  "installCommand": null,
-  "devCommand": null
+  "builds": [
+    { "src": "api/**/*.js", "use": "@vercel/node" },
+    { "src": "public/**", "use": "static" }
+  ],
+  "routes": [
+    { "src": "/api/cats", "dest": "/api/cats.js" },
+    { "src": "/api/cats/(.*)", "dest": "/api/cats.js" },
+    { "src": "/api/sightings", "dest": "/api/sightings.js" },
+    { "src": "/api/sightings/(.*)", "dest": "/api/sightings.js" },
+    { "src": "/api/feedings", "dest": "/api/feedings.js" },
+    { "src": "/api/feedings/(.*)", "dest": "/api/feedings.js" },
+    { "src": "/api/stats", "dest": "/api/stats.js" },
+    { "src": "/(.*)", "dest": "/public/$1" }
+  ]
 }

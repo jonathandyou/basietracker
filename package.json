@@ -1,0 +1,8 @@
+{
+  "name": "basietracker",
+  "version": "1.0.0",
+  "description": "Track your neighborhood cat sightings and feedings",
+  "dependencies": {
+    "postgres": "^3.4.3"
+  }
+}

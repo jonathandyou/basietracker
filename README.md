@@ -6,38 +6,42 @@ Track your neighborhood cat sightings and feedings!
 
 - **Track Cat Sightings** - Record when you see a cat, where, and with photos
 - **Time Between Sightings** - Automatically calculates how long since the last sighting
-- **Photo Uploads** - Upload photos of the cats you spot (stored as base64 in browser)
+- **Photo Uploads** - Upload photos stored as base64 in Neon PostgreSQL
 - **Track Feedings** - Log what and how much you've fed the cats
 - **Multiple Cats** - Manage multiple cats at once
-- **Export/Import** - Backup your data as JSON
+- **Neon PostgreSQL** - Database hosted on Neon (free tier)
 
 ## Deploy on Vercel
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/jonathandyou/basietracker)
+1. Go to [vercel.com](https://vercel.com) → **New Project**
+2. Import `jonathandyou/basietracker` from GitHub
+3. In **Environment Variables**, add:
+   - `POSTGRES_URL` = your Neon connection string (from console.neon.tech)
+4. Click **Deploy**
 
-Or use the Vercel CLI:
+## Local Development
 
 ```bash
-npm i -g vercel
-vercel
+npm install
+npm start
 ```
 
-## Run Locally
+Then open http://localhost:3000
 
+**Note:** For local dev with Neon, set the `POSTGRES_URL` environment variable:
 ```bash
-# Just open index.html in a browser (fully static)
-# Or serve with any static server:
-npx serve public
+POSTGRES_URL="postgresql://..." npm start
 ```
 
 ## Tech Stack
 
-- Pure HTML/CSS/JS (no backend needed)
-- localStorage for data persistence
-- Photos stored as base64 in browser
+- **Frontend:** Vanilla JS, HTML, CSS
+- **Backend:** Vercel Serverless Functions (Node.js)
+- **Database:** Neon PostgreSQL (free tier)
 
-## Data Storage
+## API Endpoints
 
-All data is stored locally in your browser using localStorage. Photos are encoded as base64 data URLs. To backup your data, use the Export button in the footer. To transfer data between browsers/devices, export and then import the JSON file.
-
-**Note:** Clearing browser data will erase your tracker data. Always export before clearing browser storage!
+- `GET/POST /api/cats` - List or add cats
+- `GET/POST /api/sightings` - List or add sightings
+- `GET/POST /api/feedings` - List or add feedings
+- `GET /api/stats` - Dashboard statistics

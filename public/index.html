@@ -70,8 +70,9 @@
             <textarea id="sighting-notes" name="notes" placeholder="Where did you see them? What were they doing?"></textarea>
           </div>
           <div class="form-group">
-            <label for="sighting-photo">Photo</label>
+            <label for="sighting-photo">Photo (optional, base64)</label>
             <input type="file" id="sighting-photo" name="photo" accept="image/*">
+            <small style="color: #888;">Photos are stored in database as base64</small>
           </div>
           <button type="submit" class="btn primary">Record Sighting</button>
         </form>
@@ -147,13 +148,6 @@
         </div>
       </div>
     </section>
-
-    <footer class="data-footer">
-      <p>Data stored locally in your browser</p>
-      <button id="export-data" class="btn secondary">Export Data</button>
-      <button id="import-data" class="btn secondary">Import Data</button>
-      <input type="file" id="import-file" accept=".json" style="display: none;">
-    </footer>
   </div>
 
   <!-- Toast Notification -->
